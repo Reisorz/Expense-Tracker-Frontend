@@ -1,0 +1,89 @@
+.principal-div {
+    display: flex;
+    align-items: center;
+    background-color: #0e0f19;
+    height: 100vh;
+    width: 100vw;
+    margin: 0px;
+    padding: 0px;
+}
+
+.image-div {
+    background-image: linear-gradient(45deg, #57886cab, #3b4d4325), url(/assets/login.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50px;
+    height: 95vh;
+    width: 60%;
+    margin-left: 20px;
+}
+
+.login-div {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 40%;
+    height: 90vh;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.form-div {
+    width: 70%;
+    height: 70%;
+    margin: auto;
+    /* background-color: #161725; */
+    border-radius: 60px;
+    color: rgb(217, 231, 225);
+    font-size: 2rem;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+h2 {
+    font-size: 4rem;
+;
+}
+
+.inputs-div {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    width: 70%;
+    margin: 0px auto;
+
+}
+
+input {
+    border-radius: 5px;
+    border: none;
+    margin: 5px 0px 30px 0px;
+    height: 50px;
+    font-size: 1.2rem;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.login-button {
+    background-color: #57886c;
+    border: none;
+    border-radius: 200px;
+    height: 50px;
+    font-size: 1.5rem;
+    color: rgb(217, 231, 225);
+}
+
+.register{
+    font-size: 1.2rem;
+    margin-top: 50px;
+}
+
+.register a {
+    text-decoration: none;
+    color: #f0b67f;
+}
