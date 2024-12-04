@@ -1,14 +1,14 @@
 <div class="principal-div">
   <div class="register-div">
     <div class="form-div">
-      <form class="register-form" action="">
+      <form class="register-form" action="" [formGroup]="registerForm">
         <h2>Register</h2>
         <div class="inputs-div">
           <label for="email">Email</label>
           <input type="text" name="email" formControlName="email" placeholder="mail@mail.com"/>
 
           <label for="name">Name</label>
-          <input type="text" name="name" fromControlName="name" placeholder="Miguel López"/>
+          <input type="text" name="name" formControlName="name" placeholder="Miguel López"/>
 
           <label for="password">Password</label>
           <input type="password" name="password" formControlName="password"/>
