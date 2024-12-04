@@ -1,1 +1,27 @@
-<p>register works!</p>
+<div class="principal-div">
+  <div class="register-div">
+    <div class="form-div">
+      <form class="register-form" action="">
+        <h2>Register</h2>
+        <div class="inputs-div">
+          <label for="email">Email</label>
+          <input type="text" name="email" formControlName="email" placeholder="mail@mail.com"/>
+
+          <label for="name">Name</label>
+          <input type="text" name="name" fromControlName="name" placeholder="Miguel López"/>
+
+          <label for="password">Password</label>
+          <input type="password" name="password" formControlName="password"/>
+
+          <button class="register-button">REGISTER</button>
+        </div>
+      </form>
+      <div class="login">
+        Already have an account? <a routerLink="/login">Login here!</a>
+      </div>
+    </div>
+  </div>
+  <div class="image-div">
+    <h1>Expense Tracker</h1>
+  </div>
+</div>

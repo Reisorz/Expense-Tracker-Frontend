@@ -17,6 +17,18 @@
     height: 95vh;
     width: 60%;
     margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: end;
+}
+
+h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(217, 231, 225);
+    margin-right: 80px;
+    font-size: 6rem;
+
 }
 
 .login-div {
@@ -76,6 +88,7 @@ input {
     height: 50px;
     font-size: 1.5rem;
     color: rgb(217, 231, 225);
+    margin-top: 20px;
 }
 
 .register{
