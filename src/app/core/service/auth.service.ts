@@ -13,8 +13,8 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  register(req: RegisterRequest) {
-    return this.http.post<TokenResponse>(`${this.urlBase}/register`, req);
+  register(request: RegisterRequest) {
+    return this.http.post<TokenResponse>(`${this.urlBase}/register`, request);
   }
 
 }

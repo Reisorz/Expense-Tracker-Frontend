@@ -1,19 +1,40 @@
 <div class="principal-div">
   <div class="register-div">
     <div class="form-div">
-      <form class="register-form" action="" [formGroup]="registerForm">
+      <form class="register-form" action="" [formGroup]="registerForm" (ngSubmit)="registerUser()">
         <h2>Register</h2>
         <div class="inputs-div">
-          <label for="email">Email</label>
-          <input type="text" name="email" formControlName="email" placeholder="mail@mail.com"/>
+          <div class="form-email">
+            <label for="email">Email</label>
+            <input type="text" name="email" formControlName="email" placeholder="mail@mail.com"/>
+            @if (emailFormControl.hasError('required') && emailFormControl.touched){
+              <div class="form-error">Email is required!</div>
+            }
+            @if (emailFormControl.hasError('email') && emailFormControl.touched){
+              <div class="form-error">Email is invalid!</div>
+            }
+          </div>  
 
-          <label for="name">Name</label>
-          <input type="text" name="name" formControlName="name" placeholder="Miguel López"/>
+          <div class="form-name">
+            <label for="name">Name</label>
+            <input type="text" name="name" formControlName="name" placeholder="Miguel López"/>
+            @if (nameFormControl.hasError('required') && nameFormControl.touched){
+              <div class="form-error">Name is required!</div>
+            }
+          </div>
 
-          <label for="password">Password</label>
-          <input type="password" name="password" formControlName="password"/>
+          <div class="form-password">
+            <label for="password">Password</label>
+            <input type="password" name="password" formControlName="password"/>
+            @if (passwordFormControl.hasError('required') && passwordFormControl.touched){
+              <div class="form-error">Password is required!</div>
+            }
+            @if (passwordFormControl.hasError('pattern') && passwordFormControl.touched){
+              <div class="form-error">Password is invalid!</div>
+            }
+          </div>
 
-          <button class="register-button">REGISTER</button>
+          <button type="submit" class="register-button">REGISTER</button>
         </div>
       </form>
       <div class="login">

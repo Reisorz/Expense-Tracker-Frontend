@@ -1,4 +1,10 @@
+@import 'ngx-toastr/toastr';
+
 body{
     margin: 0px;
     padding: 0px;
+}
+
+.toast-message, .toast-title {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
