@@ -34,14 +34,19 @@ export class RegisterComponent {
   }
 
   registerUser() {
-    console.log("RegisterUser working!")
-    this.registerForm.patchValue(this.request)
+
+    this.request = {
+      email: this.registerForm.get('email')?.value,
+      name: this.registerForm.get('name')?.value,
+      password: this.registerForm.get('password')?.value,
+    };
+
     if(this.registerForm.valid) {
       this.authService.register(this.request).subscribe({
         next:(data) => {
           localStorage.setItem('access Token', data.accessToken);
           localStorage.setItem('refresh Token', data.refreshToken);
-          console.log("User registered succesfully!");
+          this.toastr.success("You have been register succesfully!", "Registration completed!")
           this.router.navigate(['/login']);
         },
         error: (error:any) => console.log(error)
