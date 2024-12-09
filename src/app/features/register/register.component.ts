@@ -49,7 +49,9 @@ export class RegisterComponent {
           this.toastr.success("You have been register succesfully!", "Registration completed!")
           this.router.navigate(['/login']);
         },
-        error: (error:any) => console.log(error)
+        error: (error:any) => {console.log(error)
+          this.toastr.error("This email is already registered!", "Email already registered")
+        }
       })
     } else {
       this.toastr.error("Please, fill all the form fields.","Invalid fields!")

@@ -23,6 +23,8 @@ export class LoginComponent {
 
 
   constructor(private authService: AuthService, private builder: FormBuilder, private router: Router, private toastr: ToastrService){
+
+    localStorage.clear();
     
     this.loginForm = new FormGroup({
       email: this.emailFormControl,
@@ -31,6 +33,27 @@ export class LoginComponent {
   }
 
   loginUser(){
+    this.request = {
+      email: this.loginForm.get('email')?.value,
+      password: this.loginForm.get('password')?.value,
+    };
+    console.log(this.request);
+
+    if(this.loginForm.valid) {
+      this.authService.login(this.request).subscribe({
+        next:(data) => {
+          localStorage.setItem('access Token', data.accessToken);
+          localStorage.setItem('refresh Token', data.refreshToken);
+          this.toastr.success("You have logged in succesfully!", "Loggen in!")
+          this.router.navigate(['/expenses']);
+        },
+        error: (error:any) => {console.log(error)
+          this.toastr.error("Email or password are incorrect","Invalid credentials");
+        }
+      })
+    } else {
+      this.toastr.error("Please, fill all the form fields.","Invalid fields!")
+    }
 
   }
 }
