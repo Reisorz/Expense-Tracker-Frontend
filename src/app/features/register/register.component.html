@@ -1,7 +1,7 @@
 <div class="principal-div">
   <div class="register-div">
     <div class="form-div">
-      <form class="register-form" action="" [formGroup]="registerForm" (ngSubmit)="registerUser()">
+      <form class="register-form" [formGroup]="registerForm" (ngSubmit)="registerUser()">
         <h2>Register</h2>
         <div class="inputs-div">
           <div class="form-email">
@@ -17,7 +17,7 @@
 
           <div class="form-name">
             <label for="name">Name</label>
-            <input type="text" name="name" formControlName="name" placeholder="Miguel López"/>
+            <input type="text" name="name" formControlName="name" placeholder="Name Surname"/>
             @if (nameFormControl.hasError('required') && nameFormControl.touched){
               <div class="form-error">Name is required!</div>
             }

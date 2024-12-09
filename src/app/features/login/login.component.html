@@ -4,16 +4,32 @@
   </div>
   <div class="login-div">
     <div class="form-div">
-      <form class="login-form" action="">
+      <form class="login-form" [formGroup]="loginForm" (ngSubmit)="loginUser()">
         <h2>Login</h2>
         <div class="inputs-div">
-          <label for="email">Email</label>
-          <input type="text" name="email" formControlName="email" placeholder="mail@mail.com"/>
+          <div class="form-email">
+            <label for="email">Email</label>
+            <input type="text" name="email" formControlName="email" placeholder="mail@mail.com"/>
+            @if (emailFormControl.hasError('required') && emailFormControl.touched){
+              <div class="form-error">Email is required!</div>
+            }
+            @if (emailFormControl.hasError('email') && emailFormControl.touched){
+              <div class="form-error">Email is invalid!</div>
+            }
+          </div>  
 
-          <label for="password">Password</label>
-          <input type="password" name="password" formControlName="password"/>
+          <div class="form-password">
+            <label for="password">Password</label>
+            <input type="password" name="password" formControlName="password"/>
+            @if (passwordFormControl.hasError('required') && passwordFormControl.touched){
+              <div class="form-error">Password is required!</div>
+            }
+            @if (passwordFormControl.hasError('pattern') && passwordFormControl.touched){
+              <div class="form-error">Password is invalid!</div>
+            }
+          </div>
 
-          <button class="login-button">LOGIN</button>
+          <button class="login-button" type="submit">LOGIN</button>
         </div>
       </form>
       <div class="register">

@@ -51,9 +51,17 @@ h1 {
     font-size: 2rem;
 }
 
+.form-error {
+    font-size: 1rem;
+    color: #f8c7cc;
+    margin-top: 5px;
+    height: 0px;
+}
+
 .login-form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
@@ -66,30 +74,40 @@ h2 {
     display: flex;
     flex-direction: column;
     text-align: start;
-    width: 70%;
-    margin: 0px auto;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
 
 }
 
 input {
     border-radius: 5px;
     border: none;
-    margin: 5px 0px 30px 0px;
+    margin-top: 5px;
     height: 50px;
+    width: 100%;
     font-size: 1.2rem;
     padding-left: 20px;
     padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.form-password, .form-name, .form-email {
+    margin-bottom: 30px;
 }
 
 .login-button {
     background-color: #57886c;
     border: none;
-    border-radius: 200px;
+    border-radius: 100px;
     height: 50px;
+    width: 100%;
     font-size: 1.5rem;
     color: rgb(217, 231, 225);
     margin-top: 20px;
+    cursor: pointer;
 }
+
 
 .register{
     font-size: 1.2rem;
