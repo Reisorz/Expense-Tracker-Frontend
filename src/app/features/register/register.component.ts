@@ -5,6 +5,7 @@ import { AuthService } from '../../core/service/auth.service';
 import { RegisterRequest } from '../../core/model/register-request';
 import { error } from 'console';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { TokenService } from '../../core/service/token.service';
 
 @Component({
   selector: 'app-register',
@@ -24,7 +25,8 @@ export class RegisterComponent {
   request: RegisterRequest = new RegisterRequest;
 
 
-  constructor(private authService: AuthService, private builder: FormBuilder, private router: Router, private toastr: ToastrService){
+  constructor(private authService: AuthService, private builder: FormBuilder, private router: Router, private toastr: ToastrService,
+    private tokenService: TokenService){
     
     this.registerForm = new FormGroup({
       email: this.emailFormControl,
@@ -44,8 +46,7 @@ export class RegisterComponent {
     if(this.registerForm.valid) {
       this.authService.register(this.request).subscribe({
         next:(data) => {
-          localStorage.setItem('access Token', data.accessToken);
-          localStorage.setItem('refresh Token', data.refreshToken);
+          this.tokenService.setAccessToken(data.access_token);
           this.toastr.success("You have been register succesfully!", "Registration completed!")
           this.router.navigate(['/login']);
         },

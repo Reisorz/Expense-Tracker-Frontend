@@ -4,6 +4,8 @@ import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../core/service/auth.service';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { AuthRequest } from '../../core/model/auth-request';
+import { TokenService } from '../../core/service/token.service';
+import { TokenResponse } from '../../core/model/token-response';
 
 @Component({
   selector: 'app-login',
@@ -22,9 +24,11 @@ export class LoginComponent {
   request: AuthRequest = new AuthRequest;
 
 
-  constructor(private authService: AuthService, private builder: FormBuilder, private router: Router, private toastr: ToastrService){
+  constructor(private authService: AuthService, private builder: FormBuilder, private router: Router, private toastr: ToastrService,
+     private tokenService: TokenService){
 
-    localStorage.clear();
+    tokenService.removeAccessToken();
+    console.log("Access token: " + tokenService.getAccessToken())
     
     this.loginForm = new FormGroup({
       email: this.emailFormControl,
@@ -41,9 +45,8 @@ export class LoginComponent {
 
     if(this.loginForm.valid) {
       this.authService.login(this.request).subscribe({
-        next:(data) => {
-          localStorage.setItem('access Token', data.accessToken);
-          localStorage.setItem('refresh Token', data.refreshToken);
+        next:(data) => { 
+          this.tokenService.setAccessToken(data.access_token);
           this.toastr.success("You have logged in succesfully!", "Loggen in!")
           this.router.navigate(['/expenses']);
         },
