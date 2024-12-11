@@ -28,7 +28,6 @@ export class LoginComponent {
      private tokenService: TokenService){
 
     tokenService.removeAccessToken();
-    console.log("Access token: " + tokenService.getAccessToken())
     
     this.loginForm = new FormGroup({
       email: this.emailFormControl,
@@ -41,7 +40,6 @@ export class LoginComponent {
       email: this.loginForm.get('email')?.value,
       password: this.loginForm.get('password')?.value,
     };
-    console.log(this.request);
 
     if(this.loginForm.valid) {
       this.authService.login(this.request).subscribe({
