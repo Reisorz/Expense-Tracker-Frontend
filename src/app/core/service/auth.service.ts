@@ -5,6 +5,7 @@ import { TokenResponse } from '../model/token-response';
 import { AuthRequest } from '../model/auth-request';
 import { TokenService } from './token.service';
 import { map, Observable } from 'rxjs';
+import { jwtDecode } from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,18 @@ export class AuthService {
 
   isLoggedIn(){
     return this.tokenService.getAccessToken() != null;
+  }
+
+  getUserDetailsFromToken() {
+    
+    const token = this.tokenService.getAccessToken();
+    if(token){
+      const decoded = jwtDecode(token);
+      const userId = decoded.jti ?? '';
+      const email = decoded.sub ?? '';
+      localStorage.setItem("userId", userId);
+      localStorage.setItem("email", email);
+    }
   }
 
 }

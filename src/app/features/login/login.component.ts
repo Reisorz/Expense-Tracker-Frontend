@@ -28,6 +28,7 @@ export class LoginComponent {
      private tokenService: TokenService){
 
     tokenService.removeAccessToken();
+    localStorage.removeItem("userId");
     
     this.loginForm = new FormGroup({
       email: this.emailFormControl,
@@ -45,6 +46,7 @@ export class LoginComponent {
       this.authService.login(this.request).subscribe({
         next:(data) => { 
           this.tokenService.setAccessToken(data.access_token);
+          this.authService.getUserDetailsFromToken();
           this.toastr.success("You have logged in succesfully!", "Loggen in!")
           this.router.navigate(['/expenses']);
         },
@@ -57,4 +59,8 @@ export class LoginComponent {
     }
 
   }
+
+
+
 }
+

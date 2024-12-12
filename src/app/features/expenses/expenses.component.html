@@ -17,16 +17,16 @@
     <div class="main-content-div">
         <div class="expenses-section">
             <div class="search-div">
-                <form class="search-form" [formGroup]="searchForm">
+                <form class="search-form">
                     <span class="material-symbols-outlined">search</span>
-                    <input class="search-input" type="text" name="search" formControlName="search" placeholder="Search expenses..."/>
+                    <input class="search-input" type="text" name="search"  placeholder="Search expenses..."/>
                 </form>
             </div>
             <div class="expenses-options">
                 <div class="add-expense">
                     <button class="add-button" type="button"><span class="material-symbols-outlined">add_card</span>Add new expense</button>
                 </div>
-                <form class="date-filter" [formGroup]="dateFilterForm">
+                <form class="date-filter">
                     <label for="startDate">From:</label>
                     <input type="date" name="startDate">
 
