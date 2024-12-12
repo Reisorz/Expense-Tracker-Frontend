@@ -14,5 +14,30 @@
         </nav>
         <div class="logout"><span class="material-symbols-outlined">logout</span>Logout</div>
     </div>
-    <div class="expenses-div">Expenses</div>
+    <div class="main-content-div">
+        <div class="expenses-section">
+            <div class="search-div">
+                <form class="search-form" [formGroup]="searchForm">
+                    <span class="material-symbols-outlined">search</span>
+                    <input class="search-input" type="text" name="search" formControlName="search" placeholder="Search expenses..."/>
+                </form>
+            </div>
+            <div class="expenses-options">
+                <div class="add-expense">
+                    <button class="add-button" type="button"><span class="material-symbols-outlined">add_card</span>Add new expense</button>
+                </div>
+                <form class="date-filter" [formGroup]="dateFilterForm">
+                    <label for="startDate">From:</label>
+                    <input type="date" name="startDate">
+
+                    <label for="endDate">to:</label>
+                    <input type="date" name="endDate" >
+                </form>
+            </div>
+            <div class="expenses-list"></div>
+        </div>
+        <div class="graphs-section">
+
+        </div>
+    </div>
 </div>
