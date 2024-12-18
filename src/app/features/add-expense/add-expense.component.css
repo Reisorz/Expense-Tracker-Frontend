@@ -89,3 +89,76 @@
     color: #abbeb6;
 }
 
+.add-expense-form-div {
+    width: 100%;
+    margin: 50px;
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.add-expense-form {
+    margin-top: 70px;
+}
+
+.form-field{
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.form-field input, .form-field select {
+    background-color: #304142;
+    border: none;
+    color: #c1d6ce;
+    border-radius: 10px;
+    height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+.add-button {
+    margin-right: 30px;
+    height: 40px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #57886c;
+    border: none;
+    border-radius: 10px;
+    color: #1c201f;
+    cursor: pointer;
+}
+
+.cancel-button {
+    text-decoration: none;
+    margin-right: 30px;
+    padding-right: 10px;
+    padding-left: 10px;
+    height: 40px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #aa5555;
+    border: none;
+    border-radius: 10px;
+    color: #1c201f;
+    cursor: pointer;
+}
+
+.form-error {
+    font-size: 1rem;
+    color: #f8c7cc;
+    margin-top: 5px;
+    height: 0px;
+    font-weight: 300;
+}
+
+
