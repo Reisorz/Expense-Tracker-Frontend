@@ -29,6 +29,7 @@ export class LoginComponent {
 
     tokenService.removeAccessToken();
     localStorage.removeItem("userId");
+    localStorage.removeItem("email");
     
     this.loginForm = new FormGroup({
       email: this.emailFormControl,

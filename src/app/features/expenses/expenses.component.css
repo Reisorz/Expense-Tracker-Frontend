@@ -173,13 +173,28 @@
 
 
 .expenses-list {
-    display: flex;
-    align-items: center;
     height: 90%;
     width: auto;
-    background-color: #1d2627 ;
-    margin-top: 10px;
+    margin-top: 40px;
+    background-color: #1d2627;
+    border-radius: 20px;
 }
+
+.table {
+    padding: 30px;
+    width: 100%;
+    
+}
+
+.table td, 
+.table th {
+     height: 30px;
+     text-align: left;
+}
+
+
+
+
 
 
 .graphs-section {

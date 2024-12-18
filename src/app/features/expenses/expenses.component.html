@@ -2,7 +2,7 @@
     <div class="navbar-div">
         <div class="user-div">
             <img class="user-image" src="/assets/user.png" alt="user image">
-            <div class="user-name">Name Surname</div>
+            <div class="user-name">{{email}}</div>
         </div>
         <nav class="nav-options">
             <ul>
@@ -24,7 +24,7 @@
             </div>
             <div class="expenses-options">
                 <div class="add-expense">
-                    <button class="add-button" type="button"><span class="material-symbols-outlined">add_card</span>Add new expense</button>
+                    <button routerLink="/add-expense" class="add-button" type="button"><span class="material-symbols-outlined">add_card</span>Add new expense</button>
                 </div>
                 <form class="date-filter">
                     <label for="startDate">From:</label>
@@ -34,7 +34,28 @@
                     <input type="date" name="endDate" >
                 </form>
             </div>
-            <div class="expenses-list"></div>
+            <div class="expenses-list">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Value (€)</th>
+                        <th>Created At</th>
+                        <th>Type</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let expense of expenses">
+                        <td>{{ expense.id }}</td>
+                        <td>{{ expense.name }}</td>
+                        <td>{{ expense.value }}</td>
+                        <td>{{ expense.createdAt }}</td>
+                        <td>{{ expense.expenseType }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
         </div>
         <div class="graphs-section">
 
