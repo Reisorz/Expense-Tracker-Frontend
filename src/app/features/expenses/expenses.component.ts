@@ -6,10 +6,10 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { TokenService } from '../../core/service/token.service';
 import { MaterialModule } from '../../../material.module';
 import { AsyncPipe, CommonModule } from '@angular/common';
-import { Expense } from '../../core/model/expense';
 import { ExpenseService } from '../../core/service/expense.service';
 import { error } from 'console';
 import exp from 'constants';
+import { Expense } from '../../core/model/expense';
 
 @Component({
   selector: 'app-expenses',

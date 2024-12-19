@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { Expense } from '../../core/model/expense';
 import { AuthService } from '../../core/service/auth.service';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { ExpenseService } from '../../core/service/expense.service';
 import { TokenService } from '../../core/service/token.service';
+import exp from 'node:constants';
+import { error } from 'node:console';
+import { Expense } from '../../core/model/expense';
 
 @Component({
   selector: 'app-add-expense',
@@ -38,7 +40,25 @@ export class AddExpenseComponent {
     }
 
   addExpense(){
-    console.log("Add expense function!!!")
+    console.log("Add expense function!!!");
+
+    const formValues = this.addExpenseForm.getRawValue();
+    this.expense.name  = formValues.name;
+    this.expense.value = Number(formValues.value);
+    this.expense.expenseType = formValues.expenseType;
+
+    console.log(this.expense)
+    if(this.addExpenseForm.valid) {
+      this.expenseService.addExpense(this.expense).subscribe({
+        next: (data) => {this.goToExpenses();
+          this.toastr.success("Expense has been added succesfully!", "Expense added!")
+        },
+        error: (error) => console.log(error)
+      })
+    } else {
+      this.toastr.error("Please, fill all the fields.", "Invalid fields.")
+    }
+
   }
 
   goToExpenses() {
