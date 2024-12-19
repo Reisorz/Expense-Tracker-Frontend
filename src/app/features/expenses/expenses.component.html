@@ -26,12 +26,14 @@
                 <div class="add-expense">
                     <button routerLink="/add-expense" class="add-button" type="button"><span class="material-symbols-outlined">add_card</span>Add new expense</button>
                 </div>
-                <form class="date-filter">
+                <form class="date-filter" [formGroup]="filterDateForm" (ngSubmit)="filterByDateRange()">
                     <label for="startDate">From:</label>
-                    <input type="date" name="startDate">
+                    <input type="date" name="startDate" formControlName="startDate">
 
                     <label for="endDate">to:</label>
-                    <input type="date" name="endDate" >
+                    <input type="date" name="endDate" formControlName="endDate">
+
+                    <button class="filter-button" type="submit"><span class="material-symbols-outlined">filter_alt</span></button>
                 </form>
             </div>
             <div class="expenses-list">

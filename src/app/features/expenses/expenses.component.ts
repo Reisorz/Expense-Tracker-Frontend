@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../core/service/auth.service';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { TokenService } from '../../core/service/token.service';
 import { MaterialModule } from '../../../material.module';
@@ -22,12 +22,25 @@ export class ExpensesComponent{
 
   expenses: Expense[] = [];
   email: string;
+  userId: number;
+
+  filterDateForm: FormGroup;
+  startDateFormControl = new FormControl('',Validators.required);
+  endDateFormControl = new FormControl('', Validators.required);
 
   constructor(private authService: AuthService, private builder: FormBuilder, private router: Router, private toastr: ToastrService,
     private tokenService: TokenService, private expenseService: ExpenseService){
 
       this.loadUserExpenses();
       this.email = localStorage.getItem("email") ?? '';
+      this.userId = Number(localStorage.getItem("userId"));
+
+
+      this.filterDateForm = new FormGroup({
+        startDate: this.startDateFormControl,
+        endDate: this.endDateFormControl
+      })
+
     }
 
     loadUserExpenses() {
@@ -41,5 +54,33 @@ export class ExpensesComponent{
       })
     }
 
+    filterByDateRange() {
+      console.log("filterDateRange() working!");
 
+      const formValues = this.filterDateForm.getRawValue();
+      const startDate = formValues.startDate;
+      const endDate = formValues.endDate;
+      console.log(startDate  + " --> " + endDate);
+
+      const formatedStartDate = this.formatStartDate(startDate);
+      const formatedEndDate = this.formatEndDate(endDate);
+      console.log(formatedStartDate  + " --> " + formatedEndDate);
+
+      this.expenseService.listUserExpensesByDateRange(formatedStartDate, formatedEndDate, this.userId).subscribe({
+        next: (data) => this.expenses = data,
+        error: (error: any) => console.log(error)
+      })
+    }
+
+    formatStartDate(date: string){ 
+      const[year, month, day] = date.split('-').map(String);
+      const formatedDay = `${day}-${month}-${year} 00:00`
+      return formatedDay;
+    }
+
+    formatEndDate(date: string){ 
+      const[year, month, day] = date.split('-').map(String);
+      const formatedDay = `${day}-${month}-${year} 23:59`
+      return formatedDay;
+    }
 }

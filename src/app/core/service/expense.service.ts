@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import exp from 'node:constants';
 import { Expense } from '../model/expense';
@@ -20,4 +20,11 @@ export class ExpenseService {
     return this.http.post<Expense>(`${this.urlBase}/add-expense` , expense);
   }
 
+  listUserExpensesByDateRange(startDate: string, endDate: string, userId: number){
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append('creationTimeStart', startDate);
+    queryParams = queryParams.append('creationTimeEnd', endDate);
+    return this.http.get<Expense[]>(`${this.urlBase}/list-user-expenses-date-range-filter/${userId}`, {params: queryParams});
+
+  }
 }
