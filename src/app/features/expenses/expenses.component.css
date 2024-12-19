@@ -174,20 +174,30 @@
     border: none;
     border-radius: 20px;
     color: rgb(217, 231, 225);
+    cursor: pointer;
 }
 
 .filter-button {
+    font-weight: bolder;
     height: 30px;
-    width: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
     background-color: #4a6466;
     border: none;
     border-radius: 20px;
     color: rgb(217, 231, 225);
     margin-left: 10px;
+    cursor: pointer;
 }
 
 .filter-button span {
     font-size: 1.5rem;
+}
+
+.fixed-date-filters {
+    display: flex;
+    justify-content: end;
+    margin-top: 15px;
 }
 
 

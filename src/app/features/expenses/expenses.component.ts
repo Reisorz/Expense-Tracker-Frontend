@@ -72,6 +72,10 @@ export class ExpensesComponent{
       })
     }
 
+    lastWeekExpenses() {
+      
+    }
+
     formatStartDate(date: string){ 
       const[year, month, day] = date.split('-').map(String);
       const formatedDay = `${day}-${month}-${year} 00:00`
