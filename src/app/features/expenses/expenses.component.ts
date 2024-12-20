@@ -5,7 +5,7 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, 
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { TokenService } from '../../core/service/token.service';
 import { MaterialModule } from '../../../material.module';
-import { AsyncPipe, CommonModule } from '@angular/common';
+import { AsyncPipe, CommonModule, formatDate } from '@angular/common';
 import { ExpenseService } from '../../core/service/expense.service';
 import { error } from 'console';
 import exp from 'constants';
@@ -72,7 +72,22 @@ export class ExpensesComponent{
       })
     }
 
-    lastWeekExpenses() {
+    lastDaysExpenses(days: number) {
+      console.log("lastDaysExpense() working!")
+
+      var currentDate = new Date();
+      var currentDateString = formatDate(currentDate, 'yyyy-MM-dd', 'en-US');
+
+      var lastDaysDate = new Date();
+      lastDaysDate.setDate(lastDaysDate.getDate() - days);
+      var lastDaysString = formatDate(lastDaysDate, 'yyyy-MM-dd', 'en-US');
+
+      this.filterDateForm.patchValue({
+        startDate: lastDaysString,
+        endDate: currentDateString,
+      });
+
+      this.filterByDateRange();    
       
     }
 

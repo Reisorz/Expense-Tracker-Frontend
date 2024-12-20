@@ -37,9 +37,9 @@
                 </form>
             </div>
             <div class="fixed-date-filters">
-                <button class="filter-button" (click)="lastWeekExpenses()">Last week</button>
-                <button class="filter-button">Last month</button>
-                <button class="filter-button">Last 3 months</button>
+                <button class="filter-button" (click)="lastDaysExpenses(7)">Last week</button>
+                <button class="filter-button" (click)="lastDaysExpenses(30)">Last month</button>
+                <button class="filter-button" (click)="lastDaysExpenses(90)">Last 3 months</button>
             </div>
             <div class="expenses-list">
                 <table class="table">
