@@ -66,6 +66,7 @@
     box-sizing: border-box;
     border-style: solid;
     border-color: #40634f;
+    cursor: pointer;
 }
 
 .material-symbols-outlined {
@@ -221,10 +222,25 @@
      text-align: left;
 }
 
+.action-button {
+    font-weight: bolder;
+    height: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #4a6466;
+    border: none;
+    border-radius: 20px;
+    color: rgb(217, 231, 225);
+    cursor: pointer;
+}
 
+#edit-button {
+    margin-right: 15px;
+}
 
-
-
+.action-button span{
+    font-size: 1rem;
+}
 
 .graphs-section {
     background-color: #344446;
@@ -232,3 +248,4 @@
     margin: 40px;
     box-sizing: border-box;
 }
+

@@ -10,6 +10,9 @@ import { ExpenseService } from '../../core/service/expense.service';
 import { error } from 'console';
 import exp from 'constants';
 import { Expense } from '../../core/model/expense';
+import { Dialog } from '@angular/cdk/dialog';
+import { DeleteExpenseModalComponent } from '../delete-expense-modal/delete-expense-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-expenses',
@@ -23,18 +26,19 @@ export class ExpensesComponent{
   expenses: Expense[] = [];
   email: string;
   userId: number;
+  
 
   filterDateForm: FormGroup;
   startDateFormControl = new FormControl('',Validators.required);
   endDateFormControl = new FormControl('', Validators.required);
 
   constructor(private authService: AuthService, private builder: FormBuilder, private router: Router, private toastr: ToastrService,
-    private tokenService: TokenService, private expenseService: ExpenseService){
+    private tokenService: TokenService, private expenseService: ExpenseService, private dialog: MatDialog){
 
       this.loadUserExpenses();
       this.email = localStorage.getItem("email") ?? '';
       this.userId = Number(localStorage.getItem("userId"));
-
+      
 
       this.filterDateForm = new FormGroup({
         startDate: this.startDateFormControl,
@@ -108,5 +112,19 @@ export class ExpensesComponent{
         next: (data) => this.router.navigate(["/login"]),
         error: (error: any) => console.log(error)
       })
+    }
+
+    openDeleteDialog(expenseId: number){
+      const dialogRef = this.dialog.open(DeleteExpenseModalComponent, {
+        width: '20vw',
+        minWidth: '20vw',
+        maxWidth: '20vw',
+        data: {
+          expenseId: expenseId,
+        },
+      });
+      dialogRef.afterClosed().subscribe((result) => {
+        this.loadUserExpenses();
+      });
     }
 }

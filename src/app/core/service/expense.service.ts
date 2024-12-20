@@ -25,6 +25,10 @@ export class ExpenseService {
     queryParams = queryParams.append('creationTimeStart', startDate);
     queryParams = queryParams.append('creationTimeEnd', endDate);
     return this.http.get<Expense[]>(`${this.urlBase}/list-user-expenses-date-range-filter/${userId}`, {params: queryParams});
-
   }
+
+  deleteExpenseById(expenseId: number) {
+    return this.http.delete(`${this.urlBase}/delete-expense/${expenseId}`);
+  }
+
 }

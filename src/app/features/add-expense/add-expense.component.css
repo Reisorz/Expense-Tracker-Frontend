@@ -66,6 +66,7 @@
     box-sizing: border-box;
     border-style: solid;
     border-color: #40634f;
+    cursor: pointer;
 }
 
 .material-symbols-outlined {

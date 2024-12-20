@@ -50,6 +50,7 @@
                         <th>Value (€)</th>
                         <th>Created At</th>
                         <th>Type</th>
+                        <th>Actions</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -59,6 +60,10 @@
                         <td>{{ expense.value }}</td>
                         <td>{{ expense.createdAt }}</td>
                         <td>{{ expense.expenseType }}</td>
+                        <td>
+                            <button class="action-button" id="edit-button"><span class="material-symbols-outlined">edit_square</span></button>
+                            <button (click)="openDeleteDialog(expense.id)" class="action-button" id="delete-button"><span class="material-symbols-outlined">delete</span></button>
+                        </td>
                       </tr>
                     </tbody>
                   </table>
