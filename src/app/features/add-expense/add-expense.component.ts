@@ -65,4 +65,11 @@ export class AddExpenseComponent {
     this.router.navigate(['/expenses']);
   }
 
+  logout(){
+    this.authService.logout().subscribe({
+      next: (data) => this.router.navigate(["/login"]),
+      error: (error: any) => console.log(error)
+    })
+  }
+
 }

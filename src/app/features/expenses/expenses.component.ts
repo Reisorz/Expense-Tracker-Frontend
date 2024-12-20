@@ -102,4 +102,11 @@ export class ExpensesComponent{
       const formatedDay = `${day}-${month}-${year} 23:59`
       return formatedDay;
     }
+
+    logout(){
+      this.authService.logout().subscribe({
+        next: (data) => this.router.navigate(["/login"]),
+        error: (error: any) => console.log(error)
+      })
+    }
 }

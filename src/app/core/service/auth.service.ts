@@ -25,6 +25,10 @@ export class AuthService {
     return this.http.post<TokenResponse>(`${this.urlBase}/login`, request);
   }
 
+  logout() {
+    return this.http.get(`${this.urlBase}/logout`);
+  }
+
 
   isLoggedIn(){
     return this.tokenService.getAccessToken() != null;
