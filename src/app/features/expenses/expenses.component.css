@@ -283,11 +283,3 @@ tr:nth-child(even), th {
 .action-button span{
     font-size: 1rem;
 }
-
-.graphs-section {
-    background-color: #344446;
-    width: 30%;
-    margin: 40px;
-    box-sizing: border-box;
-}
-
