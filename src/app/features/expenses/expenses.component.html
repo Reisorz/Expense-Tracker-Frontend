@@ -50,22 +50,22 @@
                 <table class="table">
                     <thead>
                       <tr>
-                        <th>ID</th>
+                        <th class="id-td">ID</th>
                         <th>Name</th>
                         <th>Value (€)</th>
                         <th>Created At</th>
                         <th>Type</th>
-                        <th>Actions</th>
+                        <th class="action-td">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr *ngFor="let expense of expenses">
-                        <td>{{ expense.id }}</td>
+                        <td class="id-td">{{ expense.id }}</td>
                         <td>{{ expense.name }}</td>
-                        <td>{{ expense.value }}</td>
+                        <td class="value-td">{{ expense.value }}</td>
                         <td>{{ expense.createdAt }}</td>
                         <td>{{ expense.expenseType }}</td>
-                        <td>
+                        <td class="action-td">
                             <button class="action-button" [routerLink]="['/update-expense', expense.id]" id="edit-button"><span class="material-symbols-outlined">edit_square</span></button>
                             <button (click)="openDeleteDialog(expense.id)" class="action-button" id="delete-button"><span class="material-symbols-outlined">delete</span></button>
                         </td>

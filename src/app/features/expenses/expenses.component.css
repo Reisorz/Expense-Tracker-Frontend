@@ -208,6 +208,7 @@
     margin-top: 20px;
     background-color: #1d2627;
     border-radius: 20px;
+    padding: 30px;
 }
 
 .reset-expenses-button {
@@ -230,13 +231,36 @@
 .table {
     padding: 30px;
     width: 100%;
-    
+    border: none;
+    border-collapse: collapse;
 }
+
+tr:nth-child(even), th {
+    background-color: #333f3c;
+  }
 
 .table td, 
 .table th {
      height: 30px;
      text-align: left;
+     border: none;
+}
+
+.action-td {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.id-td{
+    width: 50px;
+    padding-left: 10px;
+}
+
+.value-td {
+    width: 100px;
 }
 
 .action-button {
