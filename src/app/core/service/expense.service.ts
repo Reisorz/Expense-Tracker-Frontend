@@ -24,6 +24,10 @@ export class ExpenseService {
     return this.http.put<Expense>(`${this.urlBase}/update-expense`, expense);
   }
 
+  listUserExpensesByName(userId: number, name: string) {
+    return this.http.get<Expense[]>(`${this.urlBase}/list-user-expenses-by-name/${userId}-${name}`)
+  }
+
   listUserExpensesByDateRange(startDate: string, endDate: string, userId: number){
     let queryParams = new HttpParams();
     queryParams = queryParams.append('creationTimeStart', startDate);

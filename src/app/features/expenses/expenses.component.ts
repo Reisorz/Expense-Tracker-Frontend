@@ -13,6 +13,7 @@ import { Expense } from '../../core/model/expense';
 import { Dialog } from '@angular/cdk/dialog';
 import { DeleteExpenseModalComponent } from '../delete-expense-modal/delete-expense-modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import e from 'express';
 
 @Component({
   selector: 'app-expenses',
@@ -26,7 +27,10 @@ export class ExpensesComponent{
   expenses: Expense[] = [];
   email: string;
   userId: number;
+  name: string;
   
+  searchNameForm: FormGroup;
+  searchFormControl = new FormControl('', Validators.required);
 
   filterDateForm: FormGroup;
   startDateFormControl = new FormControl('',Validators.required);
@@ -38,7 +42,10 @@ export class ExpensesComponent{
       this.loadUserExpenses();
       this.email = localStorage.getItem("email") ?? '';
       this.userId = Number(localStorage.getItem("userId"));
-      
+
+      this.searchNameForm = new FormGroup({
+        search: this.searchFormControl
+      })
 
       this.filterDateForm = new FormGroup({
         startDate: this.startDateFormControl,
@@ -56,6 +63,20 @@ export class ExpensesComponent{
       },
         error: (error:any) => console.log(error)
       })
+    }
+
+    searchByName(){
+      console.log("SearchByName() working!")
+      this.name = this.searchFormControl.value ?? '';
+      if(this.searchNameForm.valid) {
+        this.expenseService.listUserExpensesByName(this.userId, this.name).subscribe({
+          next: (data) => this.expenses = data,
+          error: (error: any) => console.log(error)
+        })
+      } else {
+        this.toastr.error("Please, fill the search field", "Invalid field")
+      }
+
     }
 
     filterByDateRange() {
