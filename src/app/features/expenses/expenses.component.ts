@@ -148,4 +148,11 @@ export class ExpensesComponent{
         this.loadUserExpenses();
       });
     }
+
+    resetExpensesTable(){
+      this.startDateFormControl.setValue("");
+      this.endDateFormControl.setValue("");
+      this.searchFormControl.setValue("");
+      this.loadUserExpenses();
+    }
 }
