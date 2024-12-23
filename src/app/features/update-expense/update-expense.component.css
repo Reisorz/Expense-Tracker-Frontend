@@ -1,0 +1,165 @@
+.principal-div {
+    display: flex;
+    align-items: center;
+    background-color: #233031;
+    height: 100vh;
+    width: 100vw;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(217, 231, 225);
+}
+
+.navbar-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+    width: 25%;
+    margin-left: 40px;
+}
+
+.user-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+    height: 20%;
+}
+
+.user-image{
+    width: 100px;
+}
+
+.user-name{
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+.nav-options{
+    margin: 30px;
+    height: 70%;
+    width: 90%;
+}
+
+.nav-options ul {
+    padding: 0px;
+}
+
+.logout, .nav-options li{
+    display: flex; 
+    align-items: center;
+    gap: 8px;
+    height: 80px;
+    list-style: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+.logout:hover, .nav-options li:hover {
+    border-radius: 20px;
+    background-color: #2b4235;
+    border-width: 3px;
+    box-sizing: border-box;
+    border-style: solid;
+    border-color: #40634f;
+    cursor: pointer;
+}
+
+.material-symbols-outlined {
+    font-size: 40px;    
+}
+
+.logout{
+    margin: 30px;
+    height: 10%;
+    width: 90%;
+}
+
+.main-content-div {
+    display: flex;
+    background-color: #0e0f19;
+    height: 90vh;
+    width: 100% ;
+    margin-right: 40px;
+    border-radius: 30px;
+    box-sizing: border-box;
+    color: #abbeb6;
+}
+
+.update-expense-form-div {
+    width: 100%;
+    margin: 50px;
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.update-expense-form {
+    margin-top: 70px;
+}
+
+.form-field{
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.form-field input, .form-field select {
+    background-color: #304142;
+    border: none;
+    color: #c1d6ce;
+    border-radius: 10px;
+    height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+.update-button {
+    margin-right: 30px;
+    height: 40px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #57886c;
+    border: none;
+    border-radius: 10px;
+    color: #1c201f;
+    cursor: pointer;
+}
+
+.cancel-button {
+    text-decoration: none;
+    margin-right: 30px;
+    padding-right: 10px;
+    padding-left: 10px;
+    height: 40px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #aa5555;
+    border: none;
+    border-radius: 10px;
+    color: #1c201f;
+    cursor: pointer;
+}
+
+.form-error {
+    font-size: 1rem;
+    color: #f8c7cc;
+    margin-top: 5px;
+    height: 0px;
+    font-weight: 300;
+}
+
+

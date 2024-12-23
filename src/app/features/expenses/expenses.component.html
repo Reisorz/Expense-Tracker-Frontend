@@ -61,7 +61,7 @@
                         <td>{{ expense.createdAt }}</td>
                         <td>{{ expense.expenseType }}</td>
                         <td>
-                            <button class="action-button" id="edit-button"><span class="material-symbols-outlined">edit_square</span></button>
+                            <button class="action-button" [routerLink]="['/update-expense', expense.id]" id="edit-button"><span class="material-symbols-outlined">edit_square</span></button>
                             <button (click)="openDeleteDialog(expense.id)" class="action-button" id="delete-button"><span class="material-symbols-outlined">delete</span></button>
                         </td>
                       </tr>

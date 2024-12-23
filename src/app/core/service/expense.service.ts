@@ -20,6 +20,10 @@ export class ExpenseService {
     return this.http.post<Expense>(`${this.urlBase}/add-expense` , expense);
   }
 
+  updateExpense(expense: Expense) {
+    return this.http.put<Expense>(`${this.urlBase}/update-expense`, expense);
+  }
+
   listUserExpensesByDateRange(startDate: string, endDate: string, userId: number){
     let queryParams = new HttpParams();
     queryParams = queryParams.append('creationTimeStart', startDate);
@@ -29,6 +33,10 @@ export class ExpenseService {
 
   deleteExpenseById(expenseId: number) {
     return this.http.delete(`${this.urlBase}/delete-expense/${expenseId}`);
+  }
+
+  findExpenseById(expenseId: number) {
+    return this.http.get<Expense>(`${this.urlBase}/find-expense-by-id/${expenseId}`)
   }
 
 }

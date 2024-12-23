@@ -1,0 +1,60 @@
+<div class="principal-div">
+    <div class="navbar-div">
+        <div class="user-div">
+            <img class="user-image" src="/assets/user.png" alt="user image">
+            <div class="user-name">{{email}}</div>
+        </div>
+        <nav class="nav-options">
+            <ul>
+                <li routerLink="/expenses"><span class="material-symbols-outlined">credit_card</span>Expenses</li>
+                <li><span class="material-symbols-outlined">settings</span>Settings</li>
+                <li><span class="material-symbols-outlined">help</span>Support</li>
+                <li><span class="material-symbols-outlined">person</span>Profile</li>
+            </ul>
+        </nav>
+        <div class="logout" (click)="logout()"><span class="material-symbols-outlined">logout</span>Logout</div>
+    </div>
+    <div class="main-content-div">
+        <div class="update-expense-form-div">
+            <h2>Update Expense</h2>
+            <hr>
+            <form class="update-expense-form" [formGroup]="updateExpenseForm" (ngSubmit)="updateExpense()">
+                <div class="form-field">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" formControlName="name" placeholder="Name">
+                    @if (nameFormControl.hasError('required') && nameFormControl.touched){
+                        <div class="form-error">Name is required!</div>
+                      }
+                </div>
+
+                <div class="form-field">
+                    <label for="value">Value (€)</label>
+                    <input type="text" name="value" formControlName="value" placeholder="Value" inputmode="numeric" >
+                    @if (valueFormControl.hasError('pattern') && valueFormControl.touched){
+                    <div class="form-error">Value must be a number!</div>
+                    }
+                    @if (valueFormControl.hasError('required') && valueFormControl.touched){
+                        <div class="form-error">Value is required!</div>
+                      }
+                </div>
+
+                <div class="form-field">
+                    <label for="expenseType">Expense type</label>
+                    <select name="expenseType" formControlName="expenseType">
+                        <option value="GROCERIES">GROCERIES</option>
+                        <option value="ELECTRONICS">ELECTRONICS</option>
+                        <option value="CLOTHING">CLOTHING</option>
+                        <option value="HEALTH">HEALTH</option>
+                        <option value="LEISURE">LEISURE</option>
+                    </select>
+                    @if (expenseTypeFormControl.hasError('required') && expenseTypeFormControl.touched){
+                        <div class="form-error">Expense type is required!</div>
+                      }
+                </div>
+                <button class="update-button" type="submit">Save changes</button>
+                <button routerLink="/expenses" class="cancel-button">Cancel</button>
+            </form>
+        </div>
+        
+    </div>
+</div>
