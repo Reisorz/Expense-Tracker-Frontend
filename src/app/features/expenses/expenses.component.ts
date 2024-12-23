@@ -153,6 +153,12 @@ export class ExpensesComponent{
       this.startDateFormControl.setValue("");
       this.endDateFormControl.setValue("");
       this.searchFormControl.setValue("");
+
+      const expensesListElement = document.querySelector('.expenses-list');
+      if (expensesListElement) {
+        expensesListElement.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
       this.loadUserExpenses();
     }
 }

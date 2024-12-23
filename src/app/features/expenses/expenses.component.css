@@ -209,6 +209,7 @@
     background-color: #1d2627;
     border-radius: 20px;
     padding: 30px;
+    overflow-y: auto
 }
 
 .reset-expenses-button {
