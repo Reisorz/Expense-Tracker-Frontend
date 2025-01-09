@@ -32,4 +32,4 @@
 ![update-expense](https://github.com/user-attachments/assets/99b17b8e-9fe8-44ef-850c-69cb98251aee)
 
 
-## Thanks for your time!
+## 👋​Thanks for your time!
