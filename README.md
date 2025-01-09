@@ -1,27 +1,31 @@
-# ExpenseTrackerFrontend
+# Expense Tracker API
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.4.
+**Expense Tracker API** allows the users to manage their expenses. Users can create, update and delete expenses, apart from searching them filtering by date ranges or name. The app uses JWT for authentication and authorization of the users.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Key Features
 
-## Code scaffolding
+- User **registration**, **login** and **logout**.
+- Secure authorization and authentication using **JWT** and **Spring Security**.
+- Perform **CRUD** operations with the expenses.
+- **Search** expenses by **creation date range** and by **name**.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Technologies
 
-## Build
+- **Java**
+- **MySQL**
+- **Spring Boot**
+- **JWT Authentication**
+- **HTML & CSS**
+- **TypeScript**
+- **Angular**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Visual
 
-## Running unit tests
+![login](https://github.com/user-attachments/assets/1dad6ba5-ee46-4f46-aaf2-c7984eeb6b6f)
+![register](https://github.com/user-attachments/assets/2333270a-34bc-4913-b085-9463cd59679d)
+![expense-list](https://github.com/user-attachments/assets/ec366bc1-1993-4e08-ac6f-482f650c081b)
+![update-expense](https://github.com/user-attachments/assets/99b17b8e-9fe8-44ef-850c-69cb98251aee)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Thanks for your time!
